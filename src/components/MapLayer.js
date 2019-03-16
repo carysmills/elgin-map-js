@@ -1,13 +1,10 @@
 import * as d3 from "d3";
 import * as React from 'react';
+import WithTooltip from './WithTooltip';
 
-export default class MapLayer extends React.Component {
+class MapLayer extends React.Component {
     ref = React.createRef();
-    tooltipOffset = { x: 5, y: -25 };
-    tooltip = d3.select("body")
-        .append("div")
-        .attr("class", "tooltip");
-    
+
     componentDidUpdate(prevProps) {
         if (this.props.mapData !== prevProps.mapData) {
             this.makeMap();
@@ -25,7 +22,7 @@ export default class MapLayer extends React.Component {
     }
 
     render() {
-        return <g transform={this.props.zoomTransform} ref={this.ref} />;
+        return <g transform={this.props.zoomTransform} ref={this.ref} />
     }
 
     makeMap() {
@@ -37,15 +34,15 @@ export default class MapLayer extends React.Component {
             const height = 570;
             const { fill, stroke, strokeWidth, mapData } = this.props;
             const svg = d3.select(ref);
-    
+
             const projection = d3.geoMercator()
                 .scale(5760000)
                 .translate([width / 2, height / 2])
                 .rotate([75.689767, -45.416985, -31])
-    
+
             const path = d3.geoPath()
                 .projection(projection);
-    
+
             svg.selectAll("path")
                 .data(mapData)
                 .enter()
@@ -54,9 +51,9 @@ export default class MapLayer extends React.Component {
                 .attr("stroke", stroke)
                 .attr("stroke-width", strokeWidth)
                 .attr("fill", fill)
-                .on("mouseover", this.showTooltip)
-                .on("mousemove", this.moveTooltip)
-                .on("mouseout", this.hideTooltip);
+                .on("mouseover", this.props.showTooltip)
+                .on("mousemove", this.props.moveTooltip)
+                .on("mouseout", this.props.hideTooltip);
 
             svg.selectAll("path")
                 .filter((d) => { return d.bizStatus && d.bizStatus.includes('closed') })
@@ -72,34 +69,6 @@ export default class MapLayer extends React.Component {
 
         }, 50)
     }
-
-    moveTooltip = () => {
-        const top = d3.event.pageY + this.tooltipOffset.y;
-        const left = d3.event.pageX + this.tooltipOffset.x;
-
-        this.tooltip.style("top", `${top}px`)
-            .style("left", `${left}px`);
-    }
-
-    hideTooltip = () => {
-        this.tooltip.style("display", "none");
-    }
-
-    showTooltip = (d) => {
-        this.moveTooltip();
-        const { tooltipStyle } = this.props;
-
-        const number = d.properties["addr:housenumber"];
-        const street = d.properties["addr:street"];
-        const name = d.properties.name;
-        const tooltip = this.tooltip.style("display", "block");
-
-        if (tooltipStyle === 'biz') {
-            tooltip.html(`<b>${name}</b><br>${number} ${street}`)
-        } else if(tooltipStyle === 'roads') {
-            tooltip.html(`<b>${name}</b>`)
-        } else {
-            tooltip.html(`${number} ${street}`)
-        }
-    }
 }
+
+export default WithTooltip(MapLayer);
