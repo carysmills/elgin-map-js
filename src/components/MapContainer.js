@@ -31,7 +31,7 @@ export default class MapContainer extends React.Component {
 
     render() {
 
-        return (<div>
+        return (<div id="mapContainer">
             <div id="controls">
                 <button id="zoomIn" onClick={this.buttonZoomIn}>+</button>
                 <button id="zoomOut" onClick={this.buttonZoomOut}>-</button>

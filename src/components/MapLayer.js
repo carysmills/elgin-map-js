@@ -30,6 +30,10 @@ class MapLayer extends React.Component {
         // not being able to find properties initially 
         setTimeout(() => {
             const ref = this.ref.current;
+            
+            // const docHeight = document.body.scrollHeight;
+            // const width = docHeight * 0.52;
+
             const width = 300;
             const height = 570;
             const { fill, stroke, strokeWidth, mapData } = this.props;
@@ -58,13 +62,13 @@ class MapLayer extends React.Component {
             svg.selectAll("path")
                 .filter((d) => { return d.bizStatus && d.bizStatus.includes('closed') })
                 .transition()
-                .duration(300)
-                .attr("fill", "#363457");
+                .duration(600)
+                .attr("fill", "#ff1654");
 
             svg.selectAll("path")
                 .filter((d) => { return !d.bizStatus || !d.bizStatus.includes('closed') })
                 .transition()
-                .duration(300)
+                .duration(600)
                 .attr("fill", fill);
 
         }, 50)

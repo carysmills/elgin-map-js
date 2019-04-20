@@ -38,13 +38,16 @@ const withTooltip = (WrappedComponent) => {
             this.moveTooltip();
             const { tooltipStyle } = this.props;
 
+            console.log(d)
+
             const number = d.properties["addr:housenumber"];
             const street = d.properties["addr:street"];
             const name = d.properties.name;
             const tooltip = this.tooltip.style("display", "block");
+            const notes = d.notes ?  `<br><br><b>Formerly:</b><br>${d.notes}` : '';
 
             if (tooltipStyle === 'biz') {
-                tooltip.html(`<b>${name}</b><br>${number} ${street}`)
+                tooltip.html(`<b>${name}</b><br>${number} ${street}${notes}`)
             } else if (tooltipStyle === 'roads') {
                 tooltip.html(`<b>${name}</b>`)
             } else {

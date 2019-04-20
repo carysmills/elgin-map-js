@@ -8,7 +8,7 @@ import './App.css';
 class App extends React.Component {
 
   state = {
-    month: 'jan',
+    month: 'march',
     zoomTransform: null,
   };
 
@@ -27,8 +27,8 @@ class App extends React.Component {
       <div id="container">
         <div id="innerContainer">
           <div id="buttonContainer">
-            <h1>Elgin Street</h1>
-            <h2>Retail and restaurant changes while one of Ottawa's main downtown roads is closed for construction in 2019.</h2>
+            <h1>Elgin Street in 2019</h1>
+            <h2>Retail and restaurant changes while one of Ottawa's main downtown roads is closed for construction</h2>
 
             <MonthButtons selectedMonth={this.state.month} updateMonth={this.updateMonth} />
 
@@ -37,7 +37,7 @@ class App extends React.Component {
           <div>
             <MapContainer onZoom={this.updateZoom}>
               <MapLayer
-                fill="#735290"
+                fill="#247BA0"
                 stroke="#C9C9C9"
                 strokeWidth="0.2"
                 zoomTransform={this.state.zoomTransform}
@@ -47,7 +47,7 @@ class App extends React.Component {
               />
 
               <MapLayer
-                fill="#735290"
+                fill="#b2dbbf"
                 stroke="#C9C9C9"
                 strokeWidth="0.2"
                 zoomTransform={this.state.zoomTransform}
@@ -65,7 +65,7 @@ class App extends React.Component {
               />
 
               <MapLayer
-                fill="#98A886"
+                fill="#b2dbbf"
                 zoomTransform={this.state.zoomTransform}
                 month={this.state.month}
                 mapData={this.state.parksData}
@@ -90,10 +90,11 @@ class App extends React.Component {
         d3.csv(file)
           .then((csvData) => {
             features.map((features) => {
-              csvData.map(({ id, name, bizStatus }) => {
+              csvData.map(({ id, name, bizStatus, notes }) => {
                 if (Number(id) === features.properties.id) {
                   features.properties.name = name
                   features.bizStatus = bizStatus
+                  features.notes = notes
                 }
               })
             })
