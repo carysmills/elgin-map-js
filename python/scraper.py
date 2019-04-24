@@ -6,7 +6,7 @@ import requests
 key = 'AIzaSyDICKv0OQZvErzGajcsPoTJMY2aRXGxqtY'
 gmaps = googlemaps.Client(key=key)
 
-csv_path = 'march.csv'
+csv_path = 'april.csv'
 with open(csv_path) as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=',')
     csvwriter = csv.writer(csv_file, delimiter=",")
@@ -25,6 +25,6 @@ with open(csv_path) as csv_file:
         
         print id, name, types, rating, permanently_closed
 
-        with open('march_results.csv', 'a') as csv_file:
+        with open('april_results.csv', 'a') as csv_file:
             csvwriter = csv.writer(csv_file, delimiter=",")
             csvwriter.writerow([id, name, types, rating, permanently_closed])
