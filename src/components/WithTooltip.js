@@ -40,18 +40,28 @@ const withTooltip = (WrappedComponent) => {
 
             console.log(d)
 
-            const number = d.properties["addr:housenumber"];
-            const street = d.properties["addr:street"];
+            const number = d.properties["addr:housenumber"] ? d.properties["addr:housenumber"] : '';
+            const street = d.properties["addr:street"] ? d.properties["addr:street"] : '';
             const name = d.properties.name;
+            const rating = d.rating;
+            const type = d.description;
+            const status = d.bizStatus;
             const tooltip = this.tooltip.style("display", "block");
             const notes = d.notes ?  `<br><br><b>Formerly:</b><br>${d.notes}` : '';
 
             if (tooltipStyle === 'biz') {
-                tooltip.html(`<b>${name}</b><br>${number} ${street}${notes}`)
+                tooltip.html(
+                    `<p><b>${name}</b></p>
+                    <p><b>Status:</b> ${status}</p>
+                    <p><b>Type:</b> ${type}</p>
+                    <p><b>Rating:</b> ${rating}</p>
+                    <p>${number} ${street}</p>
+                    `)
             } else if (tooltipStyle === 'roads') {
                 tooltip.html(`<b>${name}</b>`)
             } else {
-                tooltip.html(`${number} ${street}`)
+
+                tooltip.html(`${name} <br> ${number} ${street}`)
             }
         }
     }
