@@ -90,11 +90,13 @@ class App extends React.Component {
         d3.csv(file)
           .then((csvData) => {
             features.map((features) => {
-              csvData.map(({ id, name, bizStatus, notes }) => {
+              csvData.map(({ id, name, bizStatus, description, rating }) => {
+
                 if (Number(id) === features.properties.id) {
                   features.properties.name = name
                   features.bizStatus = bizStatus
-                  features.notes = notes
+                  features.rating = rating
+                  features.description = description
                 }
               })
             })
