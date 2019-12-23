@@ -1,0 +1,81 @@
+id,name,description,rating,bizStatus
+1,The Business Inn,lodging,4.3, open
+2,The Whalesbone Elgin Street,restaurant,4.4, open
+3,Eyemaxx Optical Studio,store,4.9, open
+4,Parker Clean,laundry,3.1, open
+5,Red Velvet,clothing_store,4.2, open
+6,Dollarama,store,4, open
+7,Deacon Brodies Pub,bar,4.1, open
+8,Meow Tea,cafe,4.2, opened
+9,Wine Rack,liquor_store,4, open
+10,Lemongrass Thai Cuisine,restaurant,3.8, open
+11,J'Adore Beauty Bar and Lounge,spa,3.9, open
+12,St. Louis Bar & Grill,bar,4.1, open
+13,Elgin Beer Project,restaurant,4.3, open
+14,El Camino,restaurant,4.4, open
+15,Datsun,restaurant,4.5, open
+16,Unknown,unknown,unknown,unknown
+17,The Leading Note,electronics_store,4.7, open
+18,The Standard,bar,4.1, open
+19,The Cross On Elgin,bar,4.1, closed
+20,Money Mart,finance,3.5, closed
+21,Town,restaurant,4.6, open
+22,Sir John A Pub,bar,4.3, open
+23,Uncle Tetsu,bakery,4.6, open
+24,The Fry,restaurant,4.2, open
+25,Ginza Ramen Sushi and Sake Bar,restaurant,3.9, open
+26,Zesty Market,convenience_store,2.4, open
+27,Heart of Ottawa Medical Centre,health,3.7, open
+28,The Ministry of Coffee,cafe,4.5, open
+29,Bel Fiore Flowers & Collectibles,florist,4.5, open
+30,White Cross Dispensary - (Pharmacy),pharmacy,4.5, open
+31,Oriental House Restaurant,restaurant,3.9, open
+32,Brownloaf Bakery,bakery,4.8, open
+33,Pot & Pantry,furniture_store,4.8, open
+34,Morrison's Salon,beauty_salon,4.7, open
+35,McDonald's,cafe,3.1, open
+36,Circle K,convenience_store,2.9, open
+37,Rio Nails,beauty_salon,3.7, open
+38,Happy Fish Raw Bar,bar,4, open
+39,Paramount Property Management Inc,real_estate_agency,2.4, open
+40,COMMON Eatery,restaurant,4.3, open
+41,The Manx Pub,bar,4.6, open
+42,The Waverley Elgin,restaurant,3.8, open
+43,The Lieutenant's Pump,bar,4.3, open
+44,Hooley's Pub,bar,4, closed
+45,Parker Clean,laundry,3.1, closed
+46,Fox & Feather Pub and Grill,bar,3.8, open
+47,Pancho Villa,restaurant,4.3, open
+48,Dunn's Famous,restaurant,3.7, closed
+49,Pizza Pizza,meal_delivery,3.4, open
+50,Elgin Fitness,gym,4.7, open
+51,TD Canada Trust Branch and ATM,bank,3.3, open
+52,LIVE! on Elgin,bar,4.6, open
+53,HeadHQ,store,4,open
+54,Perfect Books,book_store,4.7, open
+55,ELGIN JEWELLERS,jewelry_store,3.9, open
+56,Scrim's Florist,florist,4.6, open
+57,The Gifted Type,store,4.8, open
+58,boogie + birdie,store,4.4, open
+59,Starbucks,cafe,4.2, open
+60,Johnny Farina,bar,4.2, open
+61,Shawarma Andalos,restaurant,4.5, open
+62,Harvey's,restaurant,4, open
+63,Circle K,convenience_store,2.9, open
+64,Pure Kitchen Elgin,cafe,4.5, open
+65,Happy Goat Coffee Co. (Elgin),cafe,4.5, open
+66,The Captain's Boil,restaurant,3.9, open
+67,Elgin Street Diner,meal_delivery,4.3, open
+68,Pure Gelato,store,4.5, closed
+69,Quickie,convenience_store,5, open
+70,PiRho Grill-Elgin St,restaurant,4.7, open
+71,Al's Steakhouse,restaurant,4.3, open
+72,Hooley's Pub,bar,4, closed
+73,Pizza Pizza,meal_delivery,3.4, open
+74,TD Canada Trust Branch and ATM,bank,3.3, open
+75,Bridgehead,cafe,4.3, open
+76,Katari Imaging,store,4.7, open
+77,Kochu,restaurant,4.4, closed
+78,"Oz Kafe, ByWard Market",restaurant,4.5, closed
+79,Barres and Wheels,gym,4.7, open
+80,MacLaren's on Elgin,bar,4, open
