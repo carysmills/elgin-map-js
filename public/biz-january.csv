@@ -14,6 +14,7 @@ id,name,description,rating,bizStatus
 13,Elgin Beer Project,restaurant,4.3,open
 14,El Camino,restaurant,4.4,open
 15,Datsun,restaurant,4.4,open
+16,Unknown,unknown,unknown,unknown
 17,The Leading Note,electronics store,4.7,open
 18,The Standard,bar,4.1,open
 19,The Cross On Elgin,bar,4.1,open
@@ -50,7 +51,7 @@ id,name,description,rating,bizStatus
 50,Elgin Fitness,gym,4.7,open
 51,TD Canada Trust Branch and ATM,bank,3.3,open
 52,LIVE! on Elgin,bar,4.5,open
-53,Dollarama,store,4,open
+53,Tokyo Shop,store,4,closed
 54,Perfect Books,book store,4.8,open
 55,ELGIN JEWELLERS,jewelry store,3.9,open
 56,Scrim's Florist,florist,4.5,open

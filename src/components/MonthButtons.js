@@ -6,7 +6,7 @@ function capitalize(string) {
 
 export default function MonthButtons({ selectedMonth, updateMonth }) {
 
-    const months = ["jan", "feb", "march"];
+    const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
     const buttons = months.map((month) => {
         return (
@@ -16,9 +16,10 @@ export default function MonthButtons({ selectedMonth, updateMonth }) {
                 id={month}
                 aria-pressed={month === selectedMonth}
             >{capitalize(month)}
-        </button>
+            </button>
         )
     })
 
-    return buttons;
+    return <div className="spacer"><p className="calendarIntro">Or select a specific month</p>
+        <div className={'gridContainer'}>{buttons}</div></div>;
 }

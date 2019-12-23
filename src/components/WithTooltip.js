@@ -38,8 +38,6 @@ const withTooltip = (WrappedComponent) => {
             this.moveTooltip();
             const { tooltipStyle } = this.props;
 
-            console.log(d)
-
             const number = d.properties["addr:housenumber"] ? d.properties["addr:housenumber"] : '';
             const street = d.properties["addr:street"] ? d.properties["addr:street"] : '';
             const name = d.properties.name;

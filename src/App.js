@@ -8,8 +8,9 @@ import './App.css';
 class App extends React.Component {
 
   state = {
-    month: 'march',
+    month: 'january',
     zoomTransform: null,
+    autoPlay: false,
   };
 
   componentWillMount() {
@@ -17,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(_prevProps, prevState) {
-    if (this.state.month !== prevState.month) {
+    if (this.state.month !== prevState.month || this.state.autoPlay != prevState.autoPlay) {
       this.getMapData();
     }
   }
@@ -28,9 +29,16 @@ class App extends React.Component {
         <div id="innerContainer">
           <div id="buttonContainer">
             <h1>Elgin Street in 2019</h1>
-            <h2>Retail and restaurant changes while one of Ottawa's main downtown roads is closed for construction</h2>
+            <h2>One of Ottawa's main downtown roads was closed for almost all of 2019. See what retail and restaurant changes occurred over the year.</h2>
 
-            <MonthButtons selectedMonth={this.state.month} updateMonth={this.updateMonth} />
+            <div>
+              <div className='controls'>
+                <button aria-pressed={this.state.autoPlay} className="autoPlay" onClick={() => this.autoPlay()}>&#9658;</button>
+                <span onClick={() => this.autoPlay()}>Play the whole year</span>
+              </div>
+
+              <MonthButtons selectedMonth={this.state.month} updateMonth={this.updateMonthViaButtons} />
+            </div>
 
           </div>
 
@@ -74,6 +82,12 @@ class App extends React.Component {
           </div>
         </div>
 
+        <div className="legend"> 
+          <div><span className="closed"/> Closed</div>
+          <div><span className="open"/> Open</div>
+          <div><span className="public"/> Public space</div>
+        </div>
+
         <span>Made using Open Street Map data, d3.js and the Google Places API.</span>
       </div>
     );
@@ -85,9 +99,9 @@ class App extends React.Component {
 
   getBizData() {
     d3.json('/biz.geojson')
-      .then(({ features }) => {
+      .then(async ({ features }) => {
         const file = `biz-${this.state.month}.csv`;
-        d3.csv(file)
+        await d3.csv(file)
           .then((csvData) => {
             features.map((features) => {
               csvData.map(({ id, name, bizStatus, description, rating }) => {
@@ -126,9 +140,35 @@ class App extends React.Component {
   }
 
   updateMonth = (month) => {
-    this.setState({month});
+    this.setState({ month });
+  }
+
+  updateMonthViaButtons = (month) => {
+    this.updateMonth(month);
+    this.setState({ autoPlay: false });
+  }
+
+  autoPlay() {
+
+    this.setState({ autoPlay: true });
+
+    const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+
+    months.forEach((currentMonth, i) => {
+      setTimeout(() => {
+        const nextMonth = months[(months.findIndex((month) => month === currentMonth)) + 1];
+
+        if (nextMonth != null && this.state.autoPlay == true) {
+          this.updateMonth(nextMonth);
+        }
+
+        if (i + 1 === months.length) {
+          this.setState({ autoPlay: false });
+        }
+      }, i * 1000);
+    });
+
   }
 }
 
 export default App;
- 
